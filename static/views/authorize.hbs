@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/authorize.css">
+</head>
+
+<body>
+    <main>
+        <div class="auth">
+            <div class="logo">
+                <div>
+                    <div class="logo-bg">
+                        <img src="{{clientLogo}}" alt="app logo">
+                    </div>
+                    ---
+                    <div class="logo-bg">
+                        <img src="{{clientLogo}}" alt="app logo">
+                    </div>
+                </div>
+                <h1>
+                    Authorize GitLab.com
+                </h1>
+            </div>
+            <div class="container">
+                <div class="info">
+                    <div class="body">
+                        <img src="{{avatar}}" width="32" alt="user profile picture">
+                        <div>
+                            <strong>GitLab.com</strong> by <strong><a href="/gitlabhq" data-view-component="true"
+                                    class="Link">GitLab</a></strong>
+                        </div>
+                        <div>
+                            <small>wants to access your {{username}} account</small>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <form action="/oauth/authorize" method="post">
+                            <input type="hidden" name="client_id" value="{{clientId}}">
+                            <input type="hidden" name="redirect_uri" value="{{redirectUri}}">
+                            <input type="hidden" name="response_type" value="{{responseType}}">
+                            <input type="hidden" name="scope" value="{{scope}}">
+                            <input type="hidden" name="state" value="{{state}}">
+                            <button type="submit" name="authorize" value="0">reject</button>
+                            <button type="submit" name="authorize" value="1">allow</button>
+                        </form>
+                        <p>Authorizing will redirect to https://gitlab.com</p>
+                    </div>
+                </div>
+
+                <div class="extend">
+                    <div>
+                        <img src="/a.svg" alt="">
+                        <div>
+                            Not owned or operated by GitHub
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/b.svg" alt="">
+                        <div>
+                            Created 11 years ago
+                            {{clientCreatedAt}}
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/c.svg" alt="">
+                        <div>
+                            More than 1K GitHub users
+                            {{userCount}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

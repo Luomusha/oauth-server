@@ -1,0 +1,84 @@
+.auth {
+    max-width: 530px;
+    margin: auto;
+}
+
+.auth .logo {
+    text-align: center;
+}
+
+.auth .logo div {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.auth .logo .logo-bg {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.auth .logo .logo-bg img {
+    width: 50px;
+}
+
+.auth .container {
+    padding: 0 16px;
+    margin-top: 24px;
+}
+
+
+.auth .container .info {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.auth .container .info .body {
+    padding: 24px;
+    padding-left: 64px;
+    position: relative;
+}
+
+.auth .container .info .body img {
+    position: absolute;
+    left: 24px;
+}
+
+.auth .container .footer {
+    padding: 24px;
+}
+
+.auth .container .footer form {
+    display: flex;
+}
+
+.auth .container .footer form button {
+    display: inline-block;
+    padding: 5px 16px;
+    flex: 1;
+}
+
+.auth .extend {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: flex;
+}
+
+.auth .extend>div {
+    padding-left: 24px;
+    position: relative;
+}
+
+.auth .extend img {
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+}

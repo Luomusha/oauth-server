@@ -1,7 +1,10 @@
 import Router from "@koa/router"
-import client from "./client"
+import api from "./api"
+import oauth from "./oauth"
 
 const router = new Router()
 
-router.use(client.routes())
+router.use(oauth.routes())
+router.use(api.routes())
+
 export default router

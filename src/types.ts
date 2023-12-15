@@ -1,33 +1,61 @@
 
 export interface User {
-    id: string
+    readonly id: string
     username: string
+    avatar: string
+    createdAt?: Date
+    updatedAt?: Date
+}
+
+export interface UserAuth {
+    readonly id: string
+    readonly uid: string
+    identityType: string
+    identifier: string
+    certificate: string
+    createdAt?: Date
+    updatedAt?: Date
+}
+
+export interface UserAgent {
+    readonly uid: string
+    readonly agent: string
+    readonly ip: string
 }
 
 export interface Client {
-    clientId: string
-    clientSecret: string
+    readonly id: string
+    secret: string
+    name: string
+    logo: string
+    description: string
     redirectUris: string[]
     grants: string[]
-    accessTokenLifetime: number
-    refreshTokenLifetime: number
+    accessTokenLifetime?: number
+    refreshTokenLifetime?: number
+    createdAt?: Date
+    updatedAt?: Date
 }
 
 export interface Code {
-    authorizationCode: string
+    readonly authorizationCode: string
     expiresAt: Date
     redirectUri: string
     scope: string
-    client: Client
-    user: User
+    cid: string
+    uid: number
+    createdAt?: Date
+    updatedAt?: Date
 }
 
 export interface Token {
-    accessToken: string
+    readonly accessToken: string
     accessTokenExpiresAt: Date
     refreshToken: string
     refreshTokenExpiresAt: Date
     scope: string
-    client: Client
-    user: User
+    cid: string
+    uid: number
+    createdAt?: Date
+    updatedAt?: Date
 }
