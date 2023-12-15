@@ -1,7 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../common/db";
-import { User as UserType, UserAuth as UserAuthType, UserAgent as UserAgentType, Client as ClientType } from "../types"
-import Client from "./Client";
+import { User as UserType, UserAgent as UserAgentType, Client as ClientType } from "../types"
 
 class User extends Model implements UserType {
     declare readonly id: string
@@ -10,16 +9,6 @@ class User extends Model implements UserType {
     declare createdAt?: Date
     declare updatedAt?: Date
     declare clients?: ClientType[]
-}
-
-export class UserAuth extends Model implements UserAuthType {
-    declare readonly id: string;
-    declare readonly uid: string;
-    declare identityType: string;
-    declare identifier: string;
-    declare certificate: string;
-    declare createdAt?: Date
-    declare updatedAt?: Date
 }
 
 export class UserAgent extends Model implements UserAgentType {
@@ -45,37 +34,6 @@ User.init({
 }, {
     sequelize,
 });
-
-UserAuth.init({
-    id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
-    },
-    uid: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    identityType: {
-        type: DataTypes.ENUM,
-        values: ['email', "mobile"],
-        allowNull: false,
-    },
-    identifier: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    certificate: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-}, {
-    sequelize,
-})
-
-User.hasMany(UserAuth, { foreignKey: "uid" })
-UserAuth.belongsTo(User, { foreignKey: "uid" })
 
 
 export default User

@@ -3,7 +3,7 @@ import oauth from "../../common/oauth"
 import { Request, Response } from "oauth2-server"
 import { AUTHORIZATION_EXPORED_TIME, TIMESTAMP_EXPORED_TIME } from "../../common/config"
 import { calcTimestampSecret, generateToken } from "../../common/util"
-import User, { UserAuth } from "../../schema/User"
+import User, { Account } from "../../schema/User"
 import { Context } from "koa"
 
 const router = new Router()
@@ -17,7 +17,7 @@ router.post("/", async (ctx: Context) => {
     const dur = Date.now() - Number(timestamp) < TIMESTAMP_EXPORED_TIME
     ctx.assert(dur, 400, "timestamp expired")
 
-    const auth = await UserAuth.findOne({
+    const auth = await Account.findOne({
         where: { identifier },
         raw: true
     })

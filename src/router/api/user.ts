@@ -1,8 +1,9 @@
 import Router from "@koa/router"
-import User, { UserAuth } from "../../schema/User"
 import { Context } from "koa"
 import sequelize from "../../common/db"
 import { authenticate } from "./middleware"
+import User from "../../schema/User"
+import Account from "../../schema/Account"
 
 const router = new Router()
 router.prefix("/users")
@@ -33,7 +34,7 @@ router.post("/", async (ctx: Context, next) => {
         const user = await User.create({
             username, avatar
         })
-        const auth = await UserAuth.create({
+        const auth = await Account.create({
             uid: user.id,
             identifier,
             identityType,

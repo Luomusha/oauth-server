@@ -2,7 +2,8 @@ import OAuth2Server, { AuthorizationCodeModel, ClientCredentialsModel, PasswordM
 import Token from '../schema/Token'
 import Code from '../schema/Code'
 import Client from '../schema/Client'
-import User, { UserAuth } from '../schema/User'
+import User from '../schema/User'
+import Account from '../schema/Account'
 
 const model: AuthorizationCodeModel | PasswordModel | ClientCredentialsModel | RefreshTokenModel = {
 
@@ -88,7 +89,7 @@ const model: AuthorizationCodeModel | PasswordModel | ClientCredentialsModel | R
     },
 
     async getUser(identifier, certificate,) {
-        const auth = await UserAuth.findOne({
+        const auth = await Account.findOne({
             where: {
                 identityType: "email",
                 identifier,

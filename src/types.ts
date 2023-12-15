@@ -8,7 +8,7 @@ export interface User {
     clients?: Client[]
 }
 
-export interface UserAuth {
+export interface Account {
     readonly id: string
     readonly uid: string
     identityType: string
