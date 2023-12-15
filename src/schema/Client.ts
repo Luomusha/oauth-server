@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../common/db";
-import { Client as ClientType } from "../types"
+import { Client as ClientType, User } from "../types"
 
 class Client extends Model implements ClientType {
     declare readonly id: string;
@@ -14,6 +14,7 @@ class Client extends Model implements ClientType {
     declare refreshTokenLifetime?: number;
     declare createdAt?: Date
     declare updatedAt?: Date
+    declare users?: User[]
 }
 
 Client.init({

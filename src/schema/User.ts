@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../common/db";
-import { User as UserType, UserAuth as UserAuthType, UserAgent as UserAgentType } from "../types"
+import { User as UserType, UserAuth as UserAuthType, UserAgent as UserAgentType, Client as ClientType } from "../types"
 import Client from "./Client";
 
 class User extends Model implements UserType {
@@ -9,6 +9,7 @@ class User extends Model implements UserType {
     declare avatar: string
     declare createdAt?: Date
     declare updatedAt?: Date
+    declare clients?: ClientType[]
 }
 
 export class UserAuth extends Model implements UserAuthType {

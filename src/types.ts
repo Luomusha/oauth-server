@@ -5,6 +5,7 @@ export interface User {
     avatar: string
     createdAt?: Date
     updatedAt?: Date
+    clients?: Client[]
 }
 
 export interface UserAuth {
@@ -35,6 +36,7 @@ export interface Client {
     refreshTokenLifetime?: number
     createdAt?: Date
     updatedAt?: Date
+    users?: User[]
 }
 
 export interface Code {
