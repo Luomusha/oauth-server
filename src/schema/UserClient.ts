@@ -25,7 +25,7 @@ UserClient.init({
     sequelize,
 });
 
-User.belongsToMany(Client, { through: 'UserClients', foreignKey: 'uid' })
-Client.belongsToMany(User, { through: 'UserClients', foreignKey: 'cid' })
+User.belongsToMany(Client, { through: 'UserClients', foreignKey: 'uid', as: 'clients' })
+Client.belongsToMany(User, { through: 'UserClients', foreignKey: 'cid', as: 'users' })
 
 export default UserClient

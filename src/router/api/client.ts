@@ -20,7 +20,7 @@ router.get("/", async (ctx) => {
 
 router.get("/:id", async (ctx) => {
     const { id } = ctx.params
-    const client = await Client.findByPk(id)
+    const client = await Client.findByPk(id, { include: "users" })
     ctx.body = client
 })
 
