@@ -6,6 +6,7 @@ export interface User {
     createdAt?: Date
     updatedAt?: Date
     clients?: Client[]
+    accounts?: Account[]
 }
 
 export interface Account {

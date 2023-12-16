@@ -13,6 +13,8 @@ const sequelize = new Sequelize({
 
 sequelize.authenticate()
     .then(() => {
+        return sequelize.createSchema("oauth", {})
+    }).then(() => {
         return sequelize.sync({ force: false })
     }).then(() => {
         console.log("db connected...")

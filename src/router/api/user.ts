@@ -17,7 +17,7 @@ router.get("/", async (ctx) => {
 
 router.get("/:id", async (ctx) => {
     const { id } = ctx.params
-    const client = await User.findByPk(id)
+    const client = await User.findByPk(id, { include: "accounts" })
     ctx.body = client
 })
 
@@ -50,6 +50,5 @@ router.post("/", async (ctx: Context, next) => {
         ctx.body = e.message
     }
 })
-
 
 export default router

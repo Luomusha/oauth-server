@@ -13,7 +13,6 @@ class Account extends Model implements AccountType {
     declare updatedAt?: Date
 }
 
-
 Account.init({
     id: {
         type: DataTypes.UUID,
@@ -42,7 +41,7 @@ Account.init({
     sequelize,
 })
 
-User.hasMany(Account, { foreignKey: "uid" })
+User.hasMany(Account, { foreignKey: "uid", as: "accounts" })
 Account.belongsTo(User, { foreignKey: "uid" })
 
 
