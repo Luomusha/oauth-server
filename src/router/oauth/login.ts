@@ -3,8 +3,9 @@ import oauth from "../../common/oauth"
 import { Request, Response } from "oauth2-server"
 import { AUTHORIZATION_EXPORED_TIME, TIMESTAMP_EXPORED_TIME } from "../../common/config"
 import { calcTimestampSecret, generateToken } from "../../common/util"
-import User, { Account } from "../../schema/User"
+import User from "../../schema/User"
 import { Context } from "koa"
+import Account from "../../schema/Account"
 
 const router = new Router()
 router.prefix("/login")
