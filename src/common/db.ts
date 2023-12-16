@@ -7,6 +7,7 @@ const sequelize = new Sequelize({
     host: DB_HOST,
     password: DB_PASS,
     username: DB_USER,
+    define: { schema: 'oauth' },
     logging: msg => logger.info(msg),
 });
 
