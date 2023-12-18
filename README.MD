@@ -1,5 +1,29 @@
 # Nodejs Oauth2.0 Server reference Github
 
+Oauth2.0 server on nodejs. Base on postgres, koa and oauth2-server.
+
+## Key generate
+
+Generate private key
+`openssl genrsa -out private.pem   `
+
+Generate public key
+`openssl rsa -pubout -in private.pem -out public.pem`
+
+// create .env file
+`cat .env`
+
+Default env value
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASS=postgres
+PRIVATE_KEY=private.key
+PUBLIC_KEY=public.key
+OAUTH_HOST=localhost
+OAUTH_PORT=3000
+```
 
 ## API
 
