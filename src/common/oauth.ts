@@ -104,6 +104,12 @@ const model: AuthorizationCodeModel | PasswordModel | ClientCredentialsModel | R
         const user = await User.findOne({ raw: true })
         console.log(user)
         return user
+    },
+    async revokeToken(token) {
+        const instance = await Token.findByPk(token.accessToken)
+        if (!instance) return false
+        await instance?.destroy()
+        return true
     }
 }
 
